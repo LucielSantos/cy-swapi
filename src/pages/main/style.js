@@ -11,6 +11,8 @@ export const Header = styled.div`
   height: 10rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Body = styled.div`
@@ -31,5 +33,4 @@ export const LogoImage = styled.img.attrs({
   alt: 'main-logo',
 })`
   height: 100%;
-  margin: 0 auto;
 `;
