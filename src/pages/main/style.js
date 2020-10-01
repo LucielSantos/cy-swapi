@@ -4,11 +4,16 @@ import { swLogo } from '../../assets/images';
 export const Container = styled.div`
   padding: 3rem;
   box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const Header = styled.div`
   width: 100%;
-  height: 10rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
   display: flex;
@@ -17,7 +22,7 @@ export const Header = styled.div`
 
 export const Body = styled.div`
   width: 100%;
-  height: 70%;
+  height: 100%;
 `;
 
 export const Footer = styled.div`
@@ -26,11 +31,13 @@ export const Footer = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  padding-top: 2rem;
+  box-sizing: border-box;
 `;
 
 export const LogoImage = styled.img.attrs({
   src: swLogo,
   alt: 'main-logo',
 })`
-  height: 100%;
+  height: 10rem;
 `;

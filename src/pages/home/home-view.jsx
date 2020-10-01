@@ -1,11 +1,12 @@
 import React from 'react';
+import { Container } from './style';
 
 export const HomeView = ({
   ...props
 }) => {
   return (
-    <div>
+    <Container>
       HomeView
-    </div>
+    </Container>
   );
 }
