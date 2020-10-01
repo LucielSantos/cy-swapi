@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Text } from '../../components';
 
 import { routes } from '../../routes';
+import { addTestSelector } from '../../utils';
 import { Body, Container, Footer, Header, LogoImage } from './style';
 
 export const MainView = ({
@@ -11,7 +12,7 @@ export const MainView = ({
   return (
     <Container>
       <Header>
-        <LogoImage />
+        <LogoImage {...addTestSelector('logo-image')} />
       </Header>
 
       <Body>
@@ -26,7 +27,7 @@ export const MainView = ({
 
       <Footer>
           <Text marginBottom='xl'>
-            Projeto teste para implementar testes end-to-end com Cypress
+            Projeto para implementar testes end-to-end com Cypress
           </Text>
 
           <Text size='sm' align='center'>
