@@ -3,14 +3,24 @@ import { addTestSelector } from '../../utils';
 import { Container, Link, Separator } from './style';
 
 export const HomeView = ({
-  ...props
+  history,
 }) => {
+
+  const onClickLink = (path) => {
+    history.push(`/${path}`)
+  };
+
   return (
     <Container>
       {
         navItems.map((item, itemIndex) => (
           <>
-            <Link {...addTestSelector('nav-link')} >{ item.name }</Link>
+            <Link 
+              {...addTestSelector('nav-link')}
+              onClick={() => onClickLink(item.pathUrl)}
+            >
+              { item.name }
+            </Link>
 
             {itemIndex !== navItems.length-1 && <Separator />}
           </>
