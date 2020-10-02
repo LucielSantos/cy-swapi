@@ -33,6 +33,7 @@ export const Text = styled.p`
   margin-right: ${switchMarginRight};
 
   text-align: ${({ align = 'left' }) => align};
+  font-weight: ${({ bold = false }) => bold && '400'};
 
   ${({clickable}) => clickable && css`
     cursor: pointer;

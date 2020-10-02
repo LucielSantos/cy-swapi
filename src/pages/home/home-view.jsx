@@ -43,7 +43,7 @@ const navItems = [
   { name: 'ESPÉCIES',
     pathUrl: 'species'
   },
-  { name: 'VEICULOS',
+  { name: 'VEÍCULOS',
     pathUrl: 'vehicles'
   },
   { name: 'NAVES ESPACIAIS',

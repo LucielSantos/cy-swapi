@@ -18,6 +18,6 @@ export const Link = styled(Text).attrs({
 export const Separator = styled.div`
   height: 2rem;
   width: 1px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.primary};
   margin: 0 1rem;
 `;

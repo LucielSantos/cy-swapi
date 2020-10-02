@@ -8,7 +8,7 @@ describe('Verify if Home is rendered', () => {
       .and('contain', 'PLANETAS')
       .and('contain', 'FILMES')
       .and('contain', 'ESPÉCIES')
-      .and('contain', 'VEICULOS')
+      .and('contain', 'VEÍCULOS')
       .and('contain', 'NAVES ESPACIAIS');
   });
 });
