@@ -3,6 +3,6 @@ describe('Verify if main is rendered', () => {
 
     cy.visit('/');
 
-    cy.getBySel('logo-image');
+    cy.getBySel('logo-image')
   });
 });

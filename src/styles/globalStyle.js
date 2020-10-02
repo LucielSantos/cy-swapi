@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({theme}) => theme.colors.background};
     color: ${({theme}) => theme.colors.primary};
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
   };
 
   h1, h2, h3, h4, h5, h6, p, span, div, footer, section, header{

@@ -39,5 +39,5 @@ export const LogoImage = styled.img.attrs({
   src: swLogo,
   alt: 'main-logo',
 })`
-  height: 10rem;
+  height: 8rem;
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 
 const switchMarginSize = (sizes, margin) => {
@@ -33,4 +33,17 @@ export const Text = styled.p`
   margin-right: ${switchMarginRight};
 
   text-align: ${({ align = 'left' }) => align};
+
+  ${({clickable}) => clickable && css`
+    cursor: pointer;
+    transition: .3s;
+    
+    &:hover{
+      filter: brightness(90%);
+    }
+    
+    &:active{
+      filter: brightness(80%);
+    }
+  `}
 `;
