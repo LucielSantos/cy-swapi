@@ -10,8 +10,8 @@ describe('Verify if people is rendered', () => {
 
   it('Check if peoples list is rendered', () => {
       cy.getBySel(`${rowTablePrefixSelector}-people`)
-        .then(params => {
-          if(params.text().includes('Nenhum dado encontrado')){
+        .then(elements => {
+          if(elements.text().includes('Nenhum dado encontrado')){
             cy.getBySel(`${rowTablePrefixSelector}-people`)
               .should('contain.text', 'Nenhum dado encontrado')
           }else{
