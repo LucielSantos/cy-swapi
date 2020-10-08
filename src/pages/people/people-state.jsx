@@ -1,32 +1,45 @@
 import { getPeoples } from '../../services';
 
-const initialState = { data: { } };
+const initialState = { 
+  rows: [],
+  count: 0,
+  nextPage: false,
+  prevPage: false,
+  isLoading: true,
+};
 
-const ON_SET_DATA = 'peoples/ON_SET_DATA';
+const ON_SET_STATE = 'peoples/ON_SET_STATE';
 
 export const handleGetPeoples = (search, page) => async dispatch => {
   try {
-    const response = await getPeoples(search, page)
+    dispatch(onSetState('isLoading', true));
+
+    const response = await getPeoples(search, page);
 
     console.log(response)
 
-    dispatch(onSetData(response.data))
+    dispatch(onSetState('rows', response.data.results));
+    dispatch(onSetState('nextPage', response.data.next));
+    dispatch(onSetState('prevPage', response.data.previous));
+    dispatch(onSetState('count', response.data.count));
+
+    dispatch(onSetState('isLoading', false));
   } catch (error) {
-    dispatch(onSetData([]))
-    console.log(error);
+    dispatch(onSetState('rows', []));
+    dispatch(onSetState('isLoading', false));
   }
 }
 
-const onSetData = (data) => ({
-  type: ON_SET_DATA,
-  payload: data,
+const onSetState = (field, value) => ({
+  type: ON_SET_STATE,
+  payload: {field, value},
 });
 
-export default (state = initialState, action) => {
-  switch (action.type) {
+export default (state = initialState, {type, payload}) => {
+  switch (type) {
     
-    case ON_SET_DATA:
-      return {...state, data: action.payload};
+    case ON_SET_STATE:
+      return {...state, [payload.field]: payload.value};
 
     default:
       return state;

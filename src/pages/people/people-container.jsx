@@ -3,7 +3,10 @@ import { PeoplesView } from './people-view';
 import { handleGetPeoples } from './people-state';
 
 const mapStateToProps = ({ peoples }) => ({ 
-  peoples
+  rows: peoples.rows,
+  nextPage: peoples.nextPage,
+  prevPage: peoples.prevPage,
+  isLoading: peoples.isLoading,
 });
 
 const mapActionToProps = {

@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 
-import { Container, Table } from '../../components';
+import { Container, Table, Loader } from '../../components';
 
 export const PeoplesView = ({
-  peoples: {
-    data,
-  },
+  rows,
+  nextPage,
+  prevPage,
+  isLoading,
   handleGetPeoples,
   history,
 }) => {
@@ -16,12 +17,14 @@ export const PeoplesView = ({
 
   return (
     <Container>
-      {data.results &&
+      {rows &&
         <Table
-          rows={data?.results.map(people => people.name) || []}
+          rows={rows?.map(people => people.name) || []}
+          testSuffix='people'
         />
       }
 
+      <Loader active={!isLoading} testSuffix='people-list' />
     </Container>
   );
 }
