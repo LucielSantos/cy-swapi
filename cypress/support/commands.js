@@ -30,3 +30,15 @@ import { testSelector } from '../../src/constants';
 Cypress.Commands.add("getBySel", (selector, ...args) => (
   cy.get(`[${testSelector}=${selector}]`, ...args)
 ));
+
+Cypress.Commands.add("findBySel", { prevSubject: true }, (subject, selector, ...args) => (
+  subject.find(`[${testSelector}=${selector}]`, ...args)
+));
+
+Cypress.Commands.add('hasElement', (selector, callbackFc) => {
+  cy.get('body').then(body => {
+    if (body.find(`[${testSelector}=${selector}]`).length > 0) {
+      callbackFc();
+    }
+  });
+})

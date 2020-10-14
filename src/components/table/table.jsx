@@ -1,12 +1,17 @@
 import React from 'react';
 import { Text } from '../';
-import { rowTablePrefixSelector } from '../../constants';
+import { navTablePrefixSelector, rowTablePrefixSelector } from '../../constants';
 import { addTestSelector } from '../../utils';
-import { Container, Divider } from './style';
+import { Container, Divider, NavIconContainer, NavContainer } from './style';
+import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
 export const Table = ({
   rows = Array,
-  testSuffix = ''
+  testSuffix = '',
+  nextPage = false,
+  prevPage = false,
+  currentPage = false,
+  handlePaginate = false,
 }) => {
   return (
     <Container>
@@ -41,6 +46,43 @@ export const Table = ({
             <Divider />
           </>
         ))
+      }
+      
+      {
+        rows.length >= 0 &&
+          <NavContainer
+            {...addTestSelector(`${navTablePrefixSelector}${testSuffix ? `-${testSuffix}` : ''}`)}
+          >
+            {
+              prevPage &&
+                <NavIconContainer
+                  onClick={() => handlePaginate(prevPage)}
+                  {...addTestSelector('nav-prev')}
+                >
+                  <MdNavigateBefore />
+                </NavIconContainer>
+            }
+
+            <Text
+              bold
+              marginLeft='lg'
+              marginRight='lg'
+              size='md'
+              {...addTestSelector('nav-current-page')}
+            >
+              {currentPage}
+            </Text>
+
+            {
+              nextPage &&
+                <NavIconContainer
+                  onClick={() => handlePaginate(nextPage)}
+                  {...addTestSelector('nav-next')}
+                >
+                  <MdNavigateNext />
+                </NavIconContainer>
+            }
+          </NavContainer>
       }
     </Container>
   );

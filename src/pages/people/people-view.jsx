@@ -6,6 +6,7 @@ export const PeoplesView = ({
   rows,
   nextPage,
   prevPage,
+  currentPage,
   isLoading,
   handleGetPeoples,
   history,
@@ -15,12 +16,20 @@ export const PeoplesView = ({
     handleGetPeoples()
   }, [handleGetPeoples]);
 
+  const handlePaginate = page => {
+    handleGetPeoples('', page, currentPage);
+  }
+
   return (
     <Container>
       {rows &&
         <Table
           rows={rows?.map(people => people.name) || []}
           testSuffix='people'
+          nextPage={nextPage}
+          prevPage={prevPage}
+          currentPage={currentPage}
+          handlePaginate={handlePaginate}
         />
       }
 

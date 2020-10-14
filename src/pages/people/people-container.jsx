@@ -6,6 +6,7 @@ const mapStateToProps = ({ peoples }) => ({
   rows: peoples.rows,
   nextPage: peoples.nextPage,
   prevPage: peoples.prevPage,
+  currentPage: peoples.currentPage,
   isLoading: peoples.isLoading,
 });
 
