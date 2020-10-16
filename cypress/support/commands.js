@@ -56,7 +56,7 @@ Cypress.Commands.add('testIfListIsRendered', (suffix) => {
     })
 })
 
-Cypress.Commands.add('testIfListPagination', (suffix) => {
+Cypress.Commands.add('testListPagination', (suffix) => {
   const verifyNav = () => cy.getBySel(`${navTablePrefixSelector}-${suffix}`)
     .should('exist')
 
