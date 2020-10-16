@@ -13,6 +13,6 @@ describe('Verify if planet is rendered', () => {
   });
 
   it('Check planet list paginate', () => {
-    cy.testIfListPagination('planet')
+    cy.testListPagination('planet')
   });
 });
