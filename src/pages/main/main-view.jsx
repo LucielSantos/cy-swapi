@@ -1,13 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Text } from '../../components';
+import { FatherContainer } from '../../components/container/styled';
 
 import { routes } from '../../routes';
 import { addTestSelector } from '../../utils';
-import { Body, Container, Footer, Header, LogoImage } from './style';
+import { Body, Container, Footer, Header, LogoImage, TitleContainer } from './style';
 
 export const MainView = ({
-  ...props
+  title,
 }) => {
   return (
     <Container>
@@ -16,6 +17,21 @@ export const MainView = ({
       </Header>
 
       <Body>
+        {
+          title &&
+            <FatherContainer>
+              <TitleContainer>
+                <Text
+                  size='xl'
+                  bold
+                  marginBottom='xl'
+                >
+                  {title}
+                </Text>
+              </TitleContainer>
+            </FatherContainer>
+        }
+
         <Switch>
           {
             routes.map(({path, component: Component}) => (

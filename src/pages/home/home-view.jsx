@@ -1,10 +1,15 @@
 import React from 'react';
-import { addTestSelector } from '../../utils';
+import { useEffect } from 'react';
+import { addTestSelector, setTitle } from '../../utils';
 import { Container, Link, Separator } from './style';
 
 export const HomeView = ({
   history,
 }) => {
+
+  useEffect(() => {
+    setTitle(false);
+  }, []);
 
   const onClickLink = (path) => {
     history.push(`/${path}`)

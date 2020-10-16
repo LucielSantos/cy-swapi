@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Container, Loader, Text } from '../../../components';
-import { addTestSelector } from '../../../utils';
+import { addTestSelector, setTitle } from '../../../utils';
 import { Row } from './style';
 
 export const PeopleDetailsView = ({
@@ -12,6 +12,7 @@ export const PeopleDetailsView = ({
 }) => {
   
   useEffect(() => {
+    setTitle('Detalhes da pessoas')
     handleGetPeopleDetails(match.params.id);
   }, [handleGetPeopleDetails, match.params.id]);
 

@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { MainView } from './main-view';
 
-const mapStateToProps = () => ({ });
+const mapStateToProps = ({ main }) => ({
+  title: main.title
+});
 
 const mapActionToProps = { };
 

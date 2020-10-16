@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Container, Table, Loader } from '../../components';
-import { getIdByUrl } from '../../utils';
+import { getIdByUrl, setTitle } from '../../utils';
 
 export const PeoplesView = ({
   rows,
@@ -14,6 +14,7 @@ export const PeoplesView = ({
 }) => {
   
   useEffect(() => {
+    setTitle('Listagem de pessoas')
     handleGetPeoples()
   }, [handleGetPeoples]);
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { swLogo } from '../../assets/images';
 
 export const Container = styled.div`
-  padding: 3rem;
+  padding: 2rem;
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
@@ -40,4 +40,15 @@ export const LogoImage = styled.img.attrs({
   alt: 'main-logo',
 })`
   height: 8rem;
+`;
+
+export const TitleContainer = styled.div`
+  width: 100%;
+  max-width: 60rem;
+`;
+
+export const FatherTitle = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
