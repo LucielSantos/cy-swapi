@@ -40,18 +40,18 @@ const navItems = [
     pathUrl: 'people'
   },
   { name: 'PLANETAS',
-    pathUrl: 'planets'
+    pathUrl: 'planet'
   },
   { name: 'FILMES',
-    pathUrl: 'films'
+    pathUrl: 'film'
   },
   { name: 'ESPÉCIES',
-    pathUrl: 'species'
+    pathUrl: 'specie'
   },
   { name: 'VEÍCULOS',
-    pathUrl: 'vehicles'
+    pathUrl: 'vehicle'
   },
   { name: 'NAVES ESPACIAIS',
-    pathUrl: 'starships'
+    pathUrl: 'starship'
   },
 ]
