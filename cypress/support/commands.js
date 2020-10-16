@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 
-import { testSelector } from '../../src/constants';
+import { navTablePrefixSelector, rowTablePrefixSelector, testSelector } from '../../src/constants';
 
 Cypress.Commands.add("getBySel", (selector, ...args) => (
   cy.get(`[${testSelector}=${selector}]`, ...args)
@@ -40,5 +40,54 @@ Cypress.Commands.add('hasElement', (selector, callbackFc) => {
     if (body.find(`[${testSelector}=${selector}]`).length > 0) {
       callbackFc();
     }
+  });
+});
+
+Cypress.Commands.add('testIfListIsRendered', (suffix) => {
+  cy.getBySel(`${rowTablePrefixSelector}-${suffix}`)
+    .then(elements => {
+      if(elements.text().includes('Nenhum dado encontrado')){
+        cy.getBySel(`${rowTablePrefixSelector}-${suffix}`)
+          .should('contain.text', 'Nenhum dado encontrado')
+      }else{
+        cy.getBySel(`${rowTablePrefixSelector}-${suffix}`)
+          .should('not.empty');
+      }
+    })
+})
+
+Cypress.Commands.add('testIfListPagination', (suffix) => {
+  const verifyNav = () => cy.getBySel(`${navTablePrefixSelector}-${suffix}`)
+    .should('exist')
+
+  verifyNav()
+    .should('contain.text', '1');
+
+  cy.hasElement('nav-next', () => {
+    verifyNav()
+      .findBySel('nav-next')
+      .should('exist')
+      .findBySel('nav-prev')
+      .should('not.exist');
+
+    verifyNav()
+      .findBySel('nav-next')
+      .click()
+
+    verifyNav()
+      .should('contain.text', '2');
+    
+    verifyNav()
+      .findBySel('nav-prev')
+      .click();
+
+    verifyNav()
+      .should('contain.text', '1');
+
+    verifyNav()
+      .findBySel('nav-next')
+      .should('exist')
+      .findBySel('nav-prev')
+      .should('not.exist');
   });
 })
