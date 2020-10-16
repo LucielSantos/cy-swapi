@@ -9,3 +9,13 @@ export const getPeoples = async (search, page) => {
     return error;
   }
 }
+
+export const getPeopleDetails = async (id) => {
+  try {
+    const response = await api.get(`/people/${id}`);
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+}

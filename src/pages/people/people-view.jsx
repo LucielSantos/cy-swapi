@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Container, Table, Loader } from '../../components';
+import { getIdByUrl } from '../../utils';
 
 export const PeoplesView = ({
   rows,
@@ -20,16 +21,21 @@ export const PeoplesView = ({
     handleGetPeoples('', page, currentPage);
   }
 
+  const onClickRow = (obj) => {
+    history.push(`/people/${getIdByUrl(obj.url)}`)
+  }
+
   return (
     <Container>
       {rows &&
         <Table
-          rows={rows?.map(people => people.name) || []}
+          rows={rows?.map(people => ({label: people.name, obj: people})) || []}
           testSuffix='people'
           nextPage={nextPage}
           prevPage={prevPage}
           currentPage={currentPage}
           handlePaginate={handlePaginate}
+          onClickRow={onClickRow}
         />
       }
 

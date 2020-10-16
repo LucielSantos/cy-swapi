@@ -12,6 +12,7 @@ export const Table = ({
   prevPage = false,
   currentPage = false,
   handlePaginate = false,
+  onClickRow = false,
 }) => {
   return (
     <Container>
@@ -28,19 +29,20 @@ export const Table = ({
           >
             Nenhum dado encontrado
           </Text>
-        : rows.map(text => (
+        : rows.map(row => (
           <>
             <Text 
               bold
-              key={text}
+              key={row.label}
               marginTop='md'
               marginBottom='md'
               marginLeft='sm'
               size='lg'
               clickable
+              onClick={() => onClickRow && onClickRow(row.obj)}
               {...addTestSelector(`${rowTablePrefixSelector}${testSuffix ? `-${testSuffix}` : ''}`)}
             >
-              {text}
+              {row.label}
             </Text>
 
             <Divider />
